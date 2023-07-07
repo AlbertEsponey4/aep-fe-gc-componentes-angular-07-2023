@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario</title>
+</head>
+<body class="container"> 
+  <main class="col-12">
+    <div class="row-fluid container-formulario mb-4">
+      <h1>Alta cliente</h1>
+      <p>Nombre: <input type="text" [(ngModel)]="nuevoUsuario.nombre"></p>
+      <p>CIF: <input type="text" [(ngModel)]="nuevoUsuario.CIF"></p>
+      <p>Dirección: <input type="text" [(ngModel)]="nuevoUsuario.direccion"></p>
+      <p>Grupo: <select [(ngModel)]="selectedGrupo">
+        <option [value]="null">Selecciona un grupo</option>
+        <option *ngFor="let grupo of grupos" [value]="grupo.value">{{ grupo.label }}</option>
+      </select></p>
+      <button class="btn btn-primary" (click)="addUser()">Añadir usuario</button>
+    </div>
+    <app-lista-clientes class="row-fluid" [datos]="listaUsers"></app-lista-clientes>
+  </main>
+</body>
+</html>
